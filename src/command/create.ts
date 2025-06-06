@@ -18,7 +18,7 @@ export const templates: Map<string, TemplateInfo> = new Map([
         'Vite-Vue3-Typescript-tempalte',
         {
             name: 'Vite-Vue3-Typescript-tempalte',
-            downloadUrl: 'git@gitee.com:sohucw/admin-pro.git',
+            downloadUrl: 'git@github.com:xiexinlong/admin-pro.git',
             description: 'Vue3技术栈开发模板',
             branch: 'dev11',
         },
@@ -27,7 +27,7 @@ export const templates: Map<string, TemplateInfo> = new Map([
         'Vite-Vue3-移动端模板',
         {
             name: 'Vite-Vue3-Typescript-tempalte',
-            downloadUrl: 'git@gitee.com:sohucw/admin-pro.git',
+            downloadUrl: 'git@github.com:xiexinlong/admin-pro.git',
             description: 'Vue3技术栈开发模板',
             branch: 'h5',
         },
@@ -64,10 +64,14 @@ export const checkVersion = async (name: string, version: string) => {
     const need = gt(latestVersion, version);
     if (need) {
         console.warn(
-            `检查到dawei最新版本： ${chalk.blackBright(latestVersion)}，当前版本是：${chalk.blackBright(version)}`
+            `检查到cli最新版本： ${chalk.blackBright(
+                latestVersion
+            )}，当前版本是：${chalk.blackBright(version)}`
         );
         console.log(
-            `可使用： ${chalk.yellow('npm install dawei-cli@latest')}，或者使用：${chalk.yellow('dawei update')}更新`
+            `可使用： ${chalk.yellow(
+                'npm install xxl-cli@latest'
+            )}，或者使用：${chalk.yellow('xxl update')}更新`
         );
     }
     return need;
@@ -75,14 +79,16 @@ export const checkVersion = async (name: string, version: string) => {
 
 export async function create(projectName?: string) {
     // 初始化模板列表
-    const templateList = Array.from(templates).map((item: [string, TemplateInfo]) => {
-        const [name, info] = item;
-        return {
-            name,
-            value: name,
-            description: info.description,
-        };
-    });
+    const templateList = Array.from(templates).map(
+        (item: [string, TemplateInfo]) => {
+            const [name, info] = item;
+            return {
+                name,
+                value: name,
+                description: info.description,
+            };
+        }
+    );
     if (!projectName) {
         projectName = await input({ message: '请输入项目名称' });
     }
@@ -112,4 +118,4 @@ export async function create(projectName?: string) {
     }
 
     console.log('create', projectName);
-}   
+}

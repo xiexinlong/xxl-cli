@@ -1,7 +1,7 @@
 {
-    "name": "dawei-cli",
-    "version": "0.1.2",
-    "description": "dawei-cli 脚手架",
+    "name": "xxl-cli",
+    "version": "0.0.0",
+    "description": "xxl-cli 脚手架",
     "main": "index.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
@@ -13,9 +13,9 @@
         "TypeScript",
         "Element-plus"
     ],
-    "author": "dawei",
+    "author": "xxl",
     "bin": {
-        "dawei": "bin/index.js"
+        "xxl": "bin/index.js"
     },
     "files": [
         "dist",

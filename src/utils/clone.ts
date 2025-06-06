@@ -1,5 +1,4 @@
-
-import simpleGit, {SimpleGit, SimpleGitOptions} from 'simple-git';
+import simpleGit, { SimpleGit, SimpleGitOptions } from 'simple-git';
 import createLogger from 'progress-estimator';
 import chalk from 'chalk';
 const figlet = require('figlet');
@@ -16,7 +15,7 @@ const logger = createLogger({
 });
 
 const goodPrinter = async () => {
-    const data = await figlet('dawei-cli');
+    const data = await figlet('xxl-cli');
     console.log(chalk.rgb(40, 156, 193).visible(data));
 };
 
@@ -25,7 +24,11 @@ const gitOptions: Partial<SimpleGitOptions> = {
     binary: 'git', // 指定 git 二进制文件路径
     maxConcurrentProcesses: 6, // 最大并发进程数
 };
-export const clone = async (url: string, projectName: string, options: string[]) => {
+export const clone = async (
+    url: string,
+    projectName: string,
+    options: string[]
+) => {
     const git: SimpleGit = simpleGit(gitOptions);
     try {
         await logger(git.clone(url, projectName, options), '代码下载中: ', {
@@ -35,7 +38,7 @@ export const clone = async (url: string, projectName: string, options: string[])
         goodPrinter();
         console.log();
         console.log(chalk.blueBright(`==================================`));
-        console.log(chalk.blueBright(`=== 欢迎使用 dawei-cli 脚手架 ===`));
+        console.log(chalk.blueBright(`=== 欢迎使用 xxl-cli 脚手架 ===`));
         console.log(chalk.blueBright(`==================================`));
         console.log();
 
@@ -46,6 +49,6 @@ export const clone = async (url: string, projectName: string, options: string[])
         log.info(`${chalk.yellow('pnpm')} run dev`);
     } catch (error) {
         log.error(chalk.red('代码下载失败'));
-        // console.log(error);
+        console.log(error);
     }
 };
