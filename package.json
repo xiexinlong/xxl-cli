@@ -1,6 +1,6 @@
 {
     "name": "xxl-cli",
-    "version": "0.0.0",
+    "version": "0.1.0",
     "description": "xxl-cli 脚手架",
     "main": "index.js",
     "scripts": {
